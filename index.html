@@ -15,7 +15,29 @@
   </head>
   <body>
     <div class="container">
-        <h1>Expense Tracker</h1>
+      <h1>Expense Tracker</h1>
+
+      <div class="balance-block">
+        <h3>Your Balance</h3>
+        <div class="balance-amount" id="balance-amount">$0.00</div>
+        <div class="income-expense">
+          <div class="income" id="income">Income</div>
+          <div class="expense" id="expense">Expense</div>
+        </div>
+      </div>
+      <div class="history" id="history">
+        <h3>History</h3>
+      </div>
+      <div class="transaction-block">
+        <h3>Add new transaction</h3>
+        <form id="transaction-form">
+          <div>Enter a description</div>
+          <input type="text" placeholder="Description" id="description" />
+          <div>Enter an amount (negative - expense, positive - income)</div>
+          <input type="number" placeholder="Amount" />
+          <button class="add-btn" type="submit">Add Transaction</button>
+        </form>
+      </div>
     </div>
     <script src="script.js"></script>
   </body>
