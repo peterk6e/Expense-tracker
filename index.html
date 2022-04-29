@@ -19,22 +19,47 @@
 
       <div class="balance-block">
         <h3>Your Balance</h3>
-        <div class="balance-amount" id="balance-amount">$0.00</div>
+        <input
+          type="number"
+          class="bal"
+          id="balance-amount"
+          disabled
+          value="0.00"
+        />
         <div class="income-expense">
-          <div class="income" id="income">Income</div>
-          <div class="expense" id="expense">Expense</div>
+          <div class="income">
+            Income
+            <input
+              class="inc"
+              type="number"
+              id="income"
+              disabled
+              value="0.00"
+            />
+          </div>
+          <div class="expense" id="expense">
+            Expense
+            <input
+              class="exp"
+              type="number"
+              id="expense"
+              disabled
+              value="0.00"
+            />
+          </div>
         </div>
       </div>
-      <div class="history" id="history">
+      <div class="history">
         <h3>History</h3>
+        <div id="history"></div>
       </div>
       <div class="transaction-block">
         <h3>Add new transaction</h3>
         <form id="transaction-form">
           <div>Enter a description</div>
-          <input type="text" placeholder="Description" id="description" />
+          <input type="text" placeholder="Description" id="description" required />
           <div>Enter an amount (negative - expense, positive - income)</div>
-          <input type="number" placeholder="Amount" />
+          <input type="number" placeholder="Amount" id="amount" required/>
           <button class="add-btn" type="submit">Add Transaction</button>
         </form>
       </div>

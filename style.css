@@ -62,6 +62,7 @@ h3 {
   margin-top: 55px;
   border-bottom: 1px solid rgb(0, 157, 255);
 }
+
 form {
   font-size: 18px;
 }
@@ -71,10 +72,76 @@ form > div {
 }
 
 input {
-  font-size: 18px;  
+  font-size: 18px;
   border: 1px solid #bbb;
   padding: 10px;
 }
+
 form > input {
   margin-bottom: 20px;
+}
+
+input:disabled {
+  background: white;
+  border: none;
+}
+
+.bal {
+  font-size: 32px;
+  font-weight: 600;
+}
+
+.inc {
+  color: green;
+}
+
+.exp {
+  color: red;
+}
+
+.transaction {
+  background: rgb(253, 253, 253);
+  border-bottom: 1px solid #ddd;
+  padding: 8px 4px;
+  margin: 4px 2px;
+}
+
+.transaction:hover {
+  border-bottom: 1px solid rgb(118, 118, 118);
+}
+
+.history-description {
+  display: inline-block;
+  width: 60%;
+  text-align: left;
+}
+
+.history-amount {
+  display: inline-block;
+  width: 30%;
+  text-align: right;
+}
+
+.pos {
+  border-right: 4px solid rgb(0, 234, 0);
+}
+
+.neg {
+  border-right: 4px solid rgb(244, 39, 39);
+}
+
+.deleteTransaction {
+  background: rgb(234, 232, 232);
+  color: white;
+  cursor: pointer;
+  margin-left: -30px;
+  width: 16px;
+  padding: 2px;
+  transition: 0.9;
+  float: left;
+  text-align: center;
+}
+
+.deleteTransaction:hover {
+  background: rgb(201, 8, 8);
 }
