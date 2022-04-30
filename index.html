@@ -19,7 +19,7 @@
 
       <div class="balance-block">
         <h3>Your Balance</h3>
-        <input
+        <span>$</span><input
           type="number"
           class="bal"
           id="balance-amount"
@@ -37,7 +37,7 @@
               value="0.00"
             />
           </div>
-          <div class="expense" id="expense">
+          <div class="expense">
             Expense
             <input
               class="exp"
@@ -57,9 +57,14 @@
         <h3>Add new transaction</h3>
         <form id="transaction-form">
           <div>Enter a description</div>
-          <input type="text" placeholder="Description" id="description" required />
+          <input
+            type="text"
+            placeholder="Description"
+            id="description"
+            required
+          />
           <div>Enter an amount (negative - expense, positive - income)</div>
-          <input type="number" placeholder="Amount" id="amount" required/>
+          <input type="number" placeholder="Amount" id="amount" required />
           <button class="add-btn" type="submit">Add Transaction</button>
         </form>
       </div>

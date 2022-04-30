@@ -8,43 +8,48 @@ const history = document.getElementById("history");
 
 form.addEventListener("submit", (event) => addTransaction(event));
 
-function updateLocalStorage() {}
-
 //formatNumber
-function fn(num) {
-  return (Math.round(num * 100) / 100).toFixed(2);
+function fn(num1, num2) {
+  if (!isNaN(num1) && !isNaN(num2)) {
+    let num = parseFloat(num1) + parseFloat(num2);
+    return ((Math.round(num) * 100) / 100).toFixed(2);
+  }
+  return "0.00";
 }
 
 function updateBalance() {
-  balance.value = balance.value + amount.value;
+  balance.value = fn(balance.value, amount.value);
 }
 
 function updateExInc() {
   if (amount.value > 0) {
-    income.value = income.value + amount.value;
+    income.value = fn(income.value, amount.value);
   } else {
-    expense.value = expense.value + amount.value;
+    expense.value = fn(expense.value, amount.value);
   }
 }
 
 function cancelTransaction(amount) {
+  console.log(amount);
+
   if (amount > 0) {
-    balance.value -= amount;
-    income.value -= amount;
+    balance.value = fn(balance.value, -amount);
+    income.value = fn(income.value, -amount);
   } else {
-    balance.value += amount;
-    expense.value += amount;
+    balance.value = fn(balance.value, -amount);
+    expense.value = fn(expense.value, -amount);
   }
 }
 
 function addTransactionInHistory() {
   const newTransaction = document.createElement("div");
   const deleteTransaction = document.createElement("div");
-  
+
   deleteTransaction.className = "deleteTransaction";
   deleteTransaction.innerText = "X";
+  deleteTransaction.value = amount.value;
   deleteTransaction.addEventListener("click", () => {
-    cancelTransaction(amount.value);
+    cancelTransaction(deleteTransaction.value);
     deleteTransaction.parentElement.remove();
   });
 
@@ -64,5 +69,7 @@ function addTransaction(event) {
     updateBalance();
     updateExInc();
     addTransactionInHistory();
+    amount.value = "";
+    description.value = "";
   }
 }
