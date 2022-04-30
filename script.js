@@ -6,7 +6,23 @@ const income = document.getElementById("income");
 const expense = document.getElementById("expense");
 const history = document.getElementById("history");
 
+getLocalStorage();
 form.addEventListener("submit", (event) => addTransaction(event));
+
+function saveLocalStorage() {
+  localStorage.setItem("balance", balance.value);
+  localStorage.setItem("income", income.value);
+  localStorage.setItem("expense", expense.value);
+}
+
+function getLocalStorage() {
+  if (localStorage.getItem("balance"))
+    balance.value = localStorage.getItem("balance");
+  if (localStorage.getItem("income"))
+    income.value = localStorage.getItem("income");
+  if (localStorage.getItem("expense"))
+    expense.value = localStorage.getItem("expense");
+}
 
 //formatNumber
 function fn(num1, num2) {
@@ -30,8 +46,6 @@ function updateExInc() {
 }
 
 function cancelTransaction(amount) {
-  console.log(amount);
-
   if (amount > 0) {
     balance.value = fn(balance.value, -amount);
     income.value = fn(income.value, -amount);
@@ -71,5 +85,6 @@ function addTransaction(event) {
     addTransactionInHistory();
     amount.value = "";
     description.value = "";
+    saveLocalStorage();
   }
 }
